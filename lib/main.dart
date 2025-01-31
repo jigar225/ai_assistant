@@ -12,7 +12,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       home: Scaffold(
-        body: Text("data"),
+        body: ElevatedButton(onPressed: () {}, child: Text("press me")),
       ),
     );
   }
