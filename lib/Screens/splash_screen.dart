@@ -1,7 +1,10 @@
-import 'package:chatbot/Screens/HomeScreen.dart';
-import 'package:chatbot/Widget/Splash_loading.dart';
+import 'package:chatbot/Screens/home_screen.dart';
+import 'package:chatbot/Screens/onbording.dart';
+import 'package:chatbot/Widget/splashloading.dart';
 import 'package:chatbot/helper/global.dart';
+import 'package:chatbot/helper/pref.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class Splashscrren extends StatefulWidget {
@@ -15,8 +18,14 @@ class _SplashscrrenState extends State<Splashscrren> {
   void initState() {
     super.initState();
     Future.delayed(const Duration(seconds: 2), () {
-      Navigator.of(context).pushReplacement(
-          MaterialPageRoute(builder: (_) => const Homescreen()));
+      // Navigator.of(context).pushReplacement(MaterialPageRoute(
+      //     builder: (_) =>
+      //         pref.showonbording ? const Onbording() : const Homescreen())
+
+      //         );
+
+      Get.off(
+          () => Pref.showonbording ? const Onbording() : const Homescreen());
     });
   }
 
@@ -30,7 +39,7 @@ class _SplashscrrenState extends State<Splashscrren> {
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            SplashLoading(),
+            const SplashLoading(),
             Text(
               "Welcome To ChatPal",
               style: GoogleFonts.spaceGrotesk(

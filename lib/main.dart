@@ -1,11 +1,15 @@
-import 'package:chatbot/Screens/splashscrren.dart';
+import 'package:chatbot/Screens/splash_screen.dart';
+import 'package:chatbot/helper/global.dart';
+import 'package:chatbot/helper/pref.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:get/get_navigation/src/root/get_material_app.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
+  Pref.initlizer();
   await SystemChrome.setEnabledSystemUIMode(SystemUiMode.immersiveSticky);
   await SystemChrome.setPreferredOrientations(
       [DeviceOrientation.portraitUp, DeviceOrientation.portraitDown]);
@@ -17,7 +21,8 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
+    return const GetMaterialApp(
+      title: name,
       debugShowCheckedModeBanner: false,
       home: Splashscrren(),
     );

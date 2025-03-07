@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
 
-const name = 'Chatbot';
+const name = 'Chatpal';
 
 late Size mq;
